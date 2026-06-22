@@ -1,8 +1,10 @@
 # tangem_skills
 
 Central, versioned store for Tangem internal skills (Anthropic `SKILL.md` format).
-Skills are contributed via pull requests (usually opened automatically by the
-[Skills Portal](https://github.com/1carlito/tangem-internal-skills-portal)).
+Skills are published by the
+[Skills Portal](https://github.com/1carlito/tangem-internal-skills-portal): the portal
+scans each submission with an LLM (gpt-5.4-mini via OpenRouter) and, on a passing verdict,
+commits the file directly to `main`. There is no PR/merge step.
 
 ## Layout
 ```
@@ -19,15 +21,12 @@ skills/
 - Body kept under 500 lines; move detail into `references/`.
 
 ## Security
-Every PR that touches `skills/**/SKILL.md` runs the **Skill Security Scan**
-(`.github/workflows/skill-scan.yml`): a regex pre-filter plus an OpenRouter
-classifier for prompt-injection / data-exfiltration risks.
-- High risk -> the check fails and merge is blocked (under branch protection).
-- Medium risk -> a warning annotation for human review.
+Skills are scanned **before** they are written, inside the portal API:
+a regex pre-filter plus an OpenRouter classifier (gpt-5.4-mini) for
+prompt-injection / data-exfiltration risks.
+- High risk -> submission is rejected (HTTP 422) and nothing is committed.
+- Pass -> the file is committed directly to `main`.
 
-Set the repo secret `OPENROUTER_API_KEY` for the classifier; without it the scan
-falls back to regex-only.
-
-## Branch protection (recommended)
-Protect `main`: require the `Skill Security Scan` check to pass and require at
-least one review before merge.
+Because the gate runs before the write, there is no GitHub Actions check and no
+PR/merge flow. Restrict direct write access to `main` to the portal's GitHub
+identity so the scan cannot be bypassed.
