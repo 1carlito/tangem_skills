@@ -1,0 +1,40 @@
+name: Skill Security Scan
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/SKILL.md'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install scanner deps
+        run: npm install --no-save tsx@^4
+
+      - name: Determine changed SKILL.md files
+        id: changed
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          FILES=$(git diff --name-only "$BASE" "$HEAD" -- 'skills/**/SKILL.md' | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Run security scan (regex + OpenRouter)
+        if: steps.changed.outputs.files != ''
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: openai/gpt-4o-mini
+        run: npx tsx scripts/scan-skill.ts ${{ steps.changed.outputs.files }}
