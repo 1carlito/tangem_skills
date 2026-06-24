@@ -3,7 +3,7 @@ name: checking-skill-description-expansion
 
 description: What this skill does and when to use it (include trigger keywords) example example example example example example v example exampleexample example example example  exampleexample example example example example example example example example vexample example example example example 
 
-tags: [example, workflow]
+tags: [debug, workflow]
 
 # domain : To add a domain remove the "#" at the start of the sentence then keep only one from the following:  engineering | support | product | marketing | operations | security | research | finance | legal | hr
 
