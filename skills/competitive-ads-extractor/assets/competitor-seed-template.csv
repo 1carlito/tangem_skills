@@ -1,0 +1,2 @@
+competitor_id,advertiser_name,advertiser_aliases,official_domain,markets,languages,channels,priority,notes
+competitor-1,<ADVERTISER_NAME>,"<ALIAS_ONE>|<ALIAS_TWO>",https://example.com,"US|GB","en","meta|google",high,<OPTIONAL_NOTES>

@@ -1,0 +1,93 @@
+schema_version: "1.0"
+
+company:
+  name: "<COMPANY_NAME>"
+  primary_markets: ["<COUNTRY_OR_REGION>"]
+  languages: ["<LANGUAGE_CODE>"]
+  context_owner: "<TEAM_OR_ROLE>"
+  approved_for_external_analysis: false
+
+products:
+  - id: "<PRODUCT_ID>"
+    name: "<PRODUCT_NAME>"
+    category: "<CATEGORY>"
+    markets: ["<COUNTRY_OR_REGION>"]
+    substantiated_capabilities:
+      - "<CAPABILITY>"
+    known_limitations:
+      - "<LIMITATION>"
+
+personas:
+  - id: "<PERSONA_ID>"
+    name: "<PERSONA_NAME>"
+    priority: "<high|medium|low>"
+    roles_or_segments: ["<ROLE_OR_SEGMENT>"]
+    jobs_to_be_done:
+      - "<JOB_TO_BE_DONE>"
+    pains:
+      - "<PAIN>"
+    desired_outcomes:
+      - "<OUTCOME>"
+    objections:
+      - "<OBJECTION>"
+
+positioning:
+  pillars:
+    - id: "<PILLAR_ID>"
+      label: "<SHORT_LABEL>"
+      audiences: ["<PERSONA_ID>"]
+      message: "<CURRENT_POSITIONING_MESSAGE>"
+      proof_point_ids: ["<PROOF_ID>"]
+      approved_channels: ["<CHANNEL>"]
+
+claims_policy:
+  approved:
+    - id: "<CLAIM_ID>"
+      wording_or_family: "<APPROVED_CLAIM>"
+      markets: ["<COUNTRY_OR_REGION>"]
+      approval_source: "<OWNER_OR_DOCUMENT>"
+  prohibited:
+    - "<PROHIBITED_CLAIM_OR_TOPIC>"
+  requires_review:
+    - "<CLAIM_CATEGORY_REQUIRING_REVIEW>"
+
+proof_points:
+  - id: "<PROOF_ID>"
+    statement: "<SUPPORTED_FACT>"
+    source: "<INTERNAL_OR_PUBLIC_SOURCE>"
+    approval_status: "<approved|draft|expired>"
+    markets: ["<COUNTRY_OR_REGION>"]
+    review_date: "<YYYY-MM-DD_OR_NULL>"
+
+campaigns:
+  - id: "<CAMPAIGN_ID>"
+    product_id: "<PRODUCT_ID>"
+    channel: "<CHANNEL>"
+    audiences: ["<PERSONA_ID>"]
+    headline: "<HEADLINE>"
+    body: "<BODY_COPY>"
+    cta: "<CTA>"
+    landing_url: "<URL_OR_NULL>"
+    formats: ["<FORMAT>"]
+    markets: ["<COUNTRY_OR_REGION>"]
+    languages: ["<LANGUAGE_CODE>"]
+    start_date: "<YYYY-MM-DD>"
+    end_date: "<YYYY-MM-DD_OR_NULL>"
+    positioning_pillar_ids: ["<PILLAR_ID>"]
+
+performance:
+  included: false
+  attribution_model: "<MODEL_OR_NULL>"
+  attribution_window: "<WINDOW_OR_NULL>"
+  currency: "<ISO_CURRENCY_OR_NULL>"
+  caveats:
+    - "<KNOWN_LIMITATION>"
+  records:
+    - campaign_id: "<CAMPAIGN_ID>"
+      impressions: null
+      spend: null
+      ctr: null
+      cvr: null
+      cpa: null
+      cac: null
+      revenue: null
