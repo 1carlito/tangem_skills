@@ -1,0 +1,79 @@
+schema_version: "1.0"
+
+library:
+  library_id: "<LIBRARY_ID>"
+  name: "<LIBRARY_NAME>"
+  version: "<VERSION>"
+  status: "placeholder-not-approved"
+  legal_owner: "<LEGAL_OWNER>"
+  approved_by: "<APPROVER_OR_NULL>"
+  effective_date: "<YYYY-MM-DD_OR_NULL>"
+  expiry_date: "<YYYY-MM-DD_OR_NULL>"
+  source_reference: "<APPROVED_POLICY_OR_DOCUMENT_REFERENCE>"
+
+scope:
+  company_entities:
+    - "<COMPANY_LEGAL_ENTITY>"
+  nda_directions:
+    - "<mutual|receiving|disclosing>"
+  jurisdictions:
+    - "<JURISDICTION>"
+  transaction_types:
+    - "<TRANSACTION_TYPE>"
+  excluded_contexts:
+    - "<EXCLUDED_CONTEXT_OR_NONE>"
+
+rules:
+  - rule_id: "<RULE_ID>"
+    category: "<CLAUSE_CATEGORY>"
+    title: "<RULE_TITLE>"
+    status: "placeholder-not-approved"
+    applies_when:
+      - field: "<INTAKE_FIELD>"
+        operator: "<equals|includes>"
+        value: "<EXPECTED_VALUE>"
+    required_elements:
+      - id: "<ELEMENT_ID>"
+        description: "<REQUIRED_SEMANTIC_ELEMENT>"
+    approved_position:
+      description: "<LEGAL_APPROVED_POSITION>"
+      text_fingerprints:
+        - "<APPROVED_TEXT_OR_FINGERPRINT>"
+    acceptable_variations:
+      - variation_id: "<VARIATION_ID>"
+        description: "<LEGAL_APPROVED_VARIATION>"
+        required_elements:
+          - "<ELEMENT_THAT_MUST_REMAIN>"
+        disallowed_qualifiers:
+          - "<QUALIFIER_THAT_CHANGES_THE_POSITION>"
+        applies_when:
+          - field: "<INTAKE_FIELD>"
+            operator: "<equals|includes>"
+            value: "<EXPECTED_VALUE>"
+    prohibited_positions:
+      - position_id: "<PROHIBITED_POSITION_ID>"
+        description: "<LEGAL_APPROVED_ESCALATION_DESCRIPTION>"
+    business_inputs:
+      - field: "<INTAKE_FIELD>"
+        question: "<FACTUAL_QUESTION_FOR_BUSINESS>"
+    fallbacks:
+      - fallback_id: "<FALLBACK_ID>"
+        status: "placeholder-not-approved"
+        verbatim_text: "<LEGAL_APPROVED_FALLBACK_TEXT>"
+        applies_when:
+          - field: "<INTAKE_FIELD>"
+            operator: "<equals|includes>"
+            value: "<EXPECTED_VALUE>"
+        approved_by: "<APPROVER>"
+        effective_date: "<YYYY-MM-DD>"
+        expiry_date: "<YYYY-MM-DD_OR_NULL>"
+    escalation:
+      route: "<LEGAL_QUEUE_OR_OWNER>"
+      priority: "<LIBRARY_DEFINED_PRIORITY_OR_NULL>"
+      sla: "<LIBRARY_DEFINED_SLA_OR_NULL>"
+
+change_control:
+  revision_id: "<REVISION_ID>"
+  approved_at: "<ISO_8601_TIMESTAMP_OR_NULL>"
+  supersedes_version: "<VERSION_OR_NULL>"
+  notes: "<CHANGE_SUMMARY>"

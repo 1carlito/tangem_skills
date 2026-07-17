@@ -1,0 +1,66 @@
+{
+  "integration": {
+    "provider": "<MODEL_PROVIDER>",
+    "model": "<MODEL_ID>",
+    "endpoint": "<APPROVED_MODEL_GATEWAY>",
+    "credentials_source": "<HOST_MANAGED_SECRET_OR_IDENTITY_REFERENCE>",
+    "operation": "analyze_nda_against_clause_library"
+  },
+  "request": {
+    "request_id": "<REQUEST_ID>",
+    "document_id": "<DOCUMENT_ID>",
+    "clause_library_id": "<LIBRARY_ID>",
+    "clause_library_version": "<LIBRARY_VERSION>",
+    "system_instructions": "<RUNTIME_INSTRUCTIONS_FROM_MODEL_INTEGRATION_REFERENCE>",
+    "nda_text_with_locations": "<RUNTIME_NDA_TEXT>",
+    "intake": "<RUNTIME_VALIDATED_INTAKE_OBJECT>",
+    "applicable_clause_rules": "<RUNTIME_APPROVED_RULES_ONLY>"
+  },
+  "required_response": {
+    "schema_version": "1.0",
+    "request_id": "<REQUEST_ID>",
+    "document": {
+      "document_id": "<DOCUMENT_ID>",
+      "complete": false,
+      "extraction_notes": []
+    },
+    "clauses": [
+      {
+        "clause_id": "<LOCAL_CLAUSE_ID>",
+        "category": "<CLAUSE_CATEGORY>",
+        "heading": "<HEADING_OR_NULL>",
+        "text": "<VERBATIM_NDA_TEXT_OR_NOT_FOUND>",
+        "location": {
+          "page": null,
+          "section": "<SECTION_OR_NULL>",
+          "paragraph": "<PARAGRAPH_OR_NULL>"
+        },
+        "change_state": "<inserted|deleted|unchanged|not-applicable>",
+        "extraction_method": "<native-text|ocr|manual>",
+        "confidence": "<high|medium|low>"
+      }
+    ],
+    "comparisons": [
+      {
+        "category": "<CLAUSE_CATEGORY>",
+        "status": "<ALLOWED_REVIEW_RUBRIC_STATUS>",
+        "nda_evidence": {
+          "quote": "<VERBATIM_QUOTE_OR_NOT_FOUND>",
+          "location": "<LOCATION>"
+        },
+        "library_evidence": {
+          "rule_id": "<RULE_ID>",
+          "version": "<LIBRARY_VERSION>",
+          "matched_boundary": "<BOUNDARY_OR_NULL>"
+        },
+        "deviation": "<SPECIFIC_DIFFERENCE_OR_NONE>",
+        "business_input_needed": "<FACTUAL_INPUT_OR_NULL>",
+        "confidence": "<high|medium|low>",
+        "route_reason": "<RULE_BASED_REASON>"
+      }
+    ],
+    "overall_route": "<standard-process|business-input-needed|legal-review-required|unable-to-triage>",
+    "limitations": [],
+    "validation_errors": []
+  }
+}

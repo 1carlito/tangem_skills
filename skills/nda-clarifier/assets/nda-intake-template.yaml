@@ -1,0 +1,49 @@
+schema_version: "1.0"
+
+review:
+  requested_by: "<NAME_OR_ROLE>"
+  requested_at: "<ISO_8601_TIMESTAMP>"
+  business_deadline: "<ISO_8601_TIMESTAMP_OR_NULL>"
+  matter_id: "<INTERNAL_MATTER_ID_OR_NULL>"
+
+document:
+  filename: "<NDA_FILENAME>"
+  document_id: "<STABLE_DOCUMENT_ID>"
+  complete_with_exhibits: false
+  is_redline: false
+  base_document_id: "<BASE_DOCUMENT_ID_OR_NULL>"
+  extraction_method: "<native-text|ocr|manual>"
+
+parties:
+  company_legal_entity: "<COMPANY_LEGAL_ENTITY>"
+  counterparty_legal_name: "<COUNTERPARTY_LEGAL_NAME>"
+  company_posture: "<mutual|receiving|disclosing>"
+
+context:
+  purpose: "<PERMITTED_PURPOSE>"
+  transaction_type: "<TRANSACTION_TYPE>"
+  deal_stage: "<DEAL_STAGE_OR_NULL>"
+  governing_jurisdiction: "<JURISDICTION_OR_UNKNOWN>"
+  expected_disclosure_start: "<YYYY-MM-DD_OR_NULL>"
+  expected_disclosure_end: "<YYYY-MM-DD_OR_NULL>"
+  affiliates_need_access: null
+  external_advisers_need_access: null
+  contractors_need_access: null
+  special_data_categories:
+    - "<NONE_OR_CATEGORY>"
+  retention_constraints:
+    - "<NONE_OR_CONSTRAINT>"
+
+authority:
+  clause_library_id: "<LIBRARY_ID>"
+  clause_library_version: "<VERSION>"
+  legal_owner: "<LEGAL_OWNER>"
+  approved_status_confirmed: false
+
+data_handling:
+  approved_workspace: "<WORKSPACE_OR_SYSTEM>"
+  external_model_use_authorized: false
+  approved_model_gateway: "<GATEWAY_REFERENCE_OR_NULL>"
+  nda_contains_personal_data: null
+  additional_restrictions:
+    - "<NONE_OR_RESTRICTION>"
