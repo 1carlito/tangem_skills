@@ -1,0 +1,79 @@
+schema_version: "1.0"
+
+environment:
+  host: "<CURSOR_CLAUDE_COWORK_OTHER>"
+  reviewed_at: "<ISO_8601_TIMESTAMP>"
+  confidential_context_present: false
+
+capabilities:
+  - capability: "web-search"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<SCOPE>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "news-search"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<SCOPE>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "academic-search"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<SCOPE>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "official-record-search"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<SCOPE>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "url-extract-or-crawl"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<APPROVED_DOMAINS_AND_PATHS>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "browser"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "public"
+    query_scope: "<SCOPE>"
+    limitations:
+      - "<LIMITATION>"
+
+  - capability: "internal-search"
+    available: null
+    tool: "<TOOL_NAME_OR_MANUAL>"
+    approved: false
+    data_class: "<internal|confidential>"
+    query_scope: "<APPROVED_REPOSITORIES_OR_SYSTEMS>"
+    limitations:
+      - "<LIMITATION>"
+
+provider_rules:
+  user_named_provider: "<PROVIDER_OR_NULL>"
+  paid_provider_use_approved: false
+  external_query_data_approved:
+    - "<PUBLIC_FIELDS_ONLY>"
+  prohibited_data:
+    - "credentials"
+    - "<CONFIDENTIAL_FIELD_OR_NONE>"

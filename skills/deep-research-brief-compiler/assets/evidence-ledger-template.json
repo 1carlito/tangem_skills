@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "research_id": "<RESEARCH_ID>",
+  "decision": "<DECISION>",
+  "sources": [
+    {
+      "source_id": "S01",
+      "title": "<SOURCE_TITLE>",
+      "author": "<AUTHOR_OR_NOT_AVAILABLE>",
+      "publisher": "<PUBLISHER>",
+      "url_or_internal_id": "<URL_OR_CONTROLLED_ID>",
+      "publication_date": "<YYYY-MM-DD_OR_NOT_AVAILABLE>",
+      "accessed_at": "<ISO_8601_TIMESTAMP>",
+      "source_type": "<primary|secondary|commentary|user-supplied>",
+      "full_source_retrieved": false,
+      "scope": {
+        "geography": ["<GEOGRAPHY>"],
+        "population": "<POPULATION_OR_NOT_APPLICABLE>",
+        "data_period": "<PERIOD_OR_NOT_AVAILABLE>",
+        "language": "<LANGUAGE>"
+      },
+      "relevant_locations": [
+        {
+          "location": "<PAGE_SECTION_TABLE_OR_TIMESTAMP>",
+          "excerpt": "<SHORT_VERBATIM_OR_PARAPHRASED_EVIDENCE>",
+          "excerpt_type": "<quote|paraphrase|data>"
+        }
+      ],
+      "methodology": "<METHOD_OR_NOT_AVAILABLE>",
+      "limitations": ["<LIMITATION>"],
+      "conflicts_or_sponsorship": ["<CONFLICT_OR_NONE>"],
+      "depends_on_source_ids": []
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C01",
+      "statement": "<ONE_ATOMIC_CLAIM>",
+      "claim_type": "<fact|estimate|causal|forecast|interpretation|assumption>",
+      "supporting_source_ids": ["S01"],
+      "contradicting_source_ids": [],
+      "evidence_locations": [
+        {
+          "source_id": "S01",
+          "location": "<PAGE_SECTION_TABLE_OR_TIMESTAMP>"
+        }
+      ],
+      "scope_and_qualifiers": "<DATE_POPULATION_GEOGRAPHY_AND_QUALIFIERS>",
+      "decision_relevance": "<WHY_THIS_MATTERS>",
+      "confidence": {
+        "authority": 0,
+        "directness": 0,
+        "corroboration": 0,
+        "timeliness_scope_fit": 0,
+        "consistency": 0,
+        "penalties": 0,
+        "total": 0,
+        "label": "unsupported",
+        "rationale": "<SCORING_RATIONALE>"
+      }
+    }
+  ],
+  "audit": {
+    "tools_used": ["<TOOL_OR_MANUAL>"],
+    "queries_or_steps": ["<QUERY_OR_RESEARCH_STEP>"],
+    "coverage_limitations": ["<LIMITATION>"],
+    "last_updated": "<ISO_8601_TIMESTAMP>"
+  }
+}

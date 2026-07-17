@@ -1,0 +1,58 @@
+schema_version: "1.0"
+
+decision:
+  question: "<DECISION_TO_MAKE>"
+  owner: "<DECISION_OWNER_OR_ROLE>"
+  deadline: "<YYYY-MM-DD_OR_NULL>"
+  audience: "<BRIEF_AUDIENCE>"
+  current_position: "<CURRENT_POSITION_OR_NULL>"
+
+options:
+  - id: "<OPTION_ID>"
+    description: "<OPTION_DESCRIPTION>"
+
+criteria:
+  - id: "<CRITERION_ID>"
+    description: "<EVALUATION_CRITERION>"
+    priority: "<high|medium|low>"
+    measurement: "<HOW_TO_EVALUATE>"
+
+constraints:
+  - "<BUDGET_TIME_POLICY_OR_OTHER_CONSTRAINT>"
+
+scope:
+  markets:
+    - "<MARKET_OR_JURISDICTION>"
+  languages:
+    - "<LANGUAGE_CODE>"
+  time_window: "<CURRENT_HISTORICAL_OR_FORECAST_WINDOW>"
+  included_topics:
+    - "<TOPIC>"
+  excluded_topics:
+    - "<TOPIC>"
+
+evidence:
+  required_source_types:
+    - "<PRIMARY_DATA_REGULATION_RESEARCH_OR_OTHER>"
+  supplied_sources:
+    - "<FILE_URL_OR_DOCUMENT_ID>"
+  prohibited_sources:
+    - "<SOURCE_OR_PROVIDER>"
+  minimum_confidence_for_recommendation: "<high|medium>"
+
+tools:
+  external_research_authorized: false
+  internal_search_authorized: false
+  approved_tools:
+    - "<TOOL_OR_NONE>"
+  confidential_context_may_leave_environment: false
+
+output:
+  mode: "<focused|deep>"
+  format: "markdown"
+  maximum_length: "<PAGE_OR_WORD_LIMIT_OR_NULL>"
+  include_source_register: true
+  include_claim_ledger: true
+
+stop_conditions:
+  - "<EVIDENCE_OR_DEADLINE_STOP_CONDITION>"
